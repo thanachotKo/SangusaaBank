@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #CCFFFF;
+        }
+
+         * {
+            box-sizing: border-box;
+        }
+
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        .select {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+
+        .nextbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 20%;
+            opacity: 0.9;
+            float: right;
+        }
+
+        .nextbtn:hover {
+            opacity: 1;
+        }
+
+
+        .backbtn {
+            background-color: #ffbb00;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 20%;
+            opacity: 0.9;
+            float: right;
+        }
+
+        .backbtn:hover {
+            opacity: 1;
+        }
+
+
+        a {
+            color: dodgerblue;
+        }
+
+
+        .signin {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+
+        .columnleft {
+            float: left;
+            width: 30%;
+            padding: 16px;
+            background-color: #FF9999;
+        }
+        .columnleft1 {
+            float: left;
+            width: 35%;
+            padding: 16px;
+            background-color: #FFCC66;
+        }
+        .columnleft2 {
+            float: left;
+            width: 35%;
+            padding: 16px;
+            background-color: #CCFFFF;
+        }
+        .columnlefttwo {
+            float: left;
+            width: 50%;
+            padding: 16px;
+            background-color: white;
+        }
+
+        .callbackbutton {
+            background-color: #ffbb00;
+            color: white;
+            padding: 2.5%;
+            margin: 8px;
+            border: none;
+            cursor: pointer;
+            width: 25%;
+            opacity: 0.9;
+            float: left;
+        }
+
+        .callbackbutton:hover {
+            opacity: 1;
+        }
+
+        .regisbutton {
+            position : relative;
+            left : 1%;
+            background-color: #ffbb00;
+            color: white;
+            padding: 5%;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 25%;
+            opacity: 0.9;
+            float: left;
+        }
+
+        .regisbutton:hover {
+            opacity: 1;
+        }
+
+        .calculatebutton {
+            background-color: #66CC66;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 20%;
+            opacity: 0.9;
+            float: left;
+        }
+
+        .calculate:hover {
+            opacity: 1;
+        }
+
+        .container {
+            background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-chinese-medical-day-simple-blue-doctors-image_14460.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            padding: 16px;
+        }
+
+        @charset "UTF-8";
+        .custom-select {
+            position: relative;
+            display: block;
+            max-width: 400px;
+            min-width: 180px;
+            margin: 0 auto;
+            border: 1px solid #3C1C78;
+            background-color: white;
+            z-index: 10;
+        }
+        .custom-select select {
+            border: none;
+            outline: none;
+            background: transparent;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0;
+            margin: 0;
+            display: block;
+            width: 100%;
+            padding: 12px 55px 15px 15px;
+            font-size: 14px;
+            color: black;
+        }
+        .custom-select:after {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50px;
+            height: 100%;
+            line-height: 38px;
+            content: "∨";
+            text-align: center;
+            color: #714BB9;
+            font-size: 24px;
+            border-left: 1px solid #3C1C78;
+            z-index: -1;
+        }
+
+
+
+</style>
+    <div class="container">
+        <h1>รายละเอียดสินเชื่อ</h1>
+    <h2>• ดูแลค่าเทอม เติมเต็มค่ารักษา</h2>
+    <h2>• พิเศษวงเงินสูงสุด 2ล้านบาท</h2>
+    </div>
+</head>
+<body>
+
+    <div class="columnleft" >
+
+        <h2>จุดเด่นผลิตภัณฑ์</h2>
+        <label>• ดอกเบี้ยต่ำ 15.00% ต่อปี
+            <br />
+            • ผ่อนสบายสูงสุด 60เดิอน
+            <br />
+            • ไม่มีค่าธรรมเนียมการใช้วงเงิน
+            และการจัดการเงินกู้
+            <br />
+            • ไม่ต้องมีหลักทรัพย์หรือบุคคลค้ำ
+            ประกัน
+        </label>
+        <br><br><br>
+        <a href="creditpage" class="regisbutton" style="text-align : center;">สมัครเลย</a>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+
+    </div>
+
+    <div class="columnleft1" >
+        <form th:action="@{/firstpageforcredit}" method="POST">
+            <h2>คำนวณการผ่อนชำระสินเชื่อ</h2>
+
+            <label for="inputType">อาชีพของคุณ</label>
+            <select class="w3-select w3-border" name="type" id="inputType" required>
+                <option value="" disabled selected>ตำแหน่งงาน</option>
+                <option value="พนักงานประจำ">พนักงานประจำ</option>
+                <option value="เจ้าของกิจการ">เจ้าของกิจการ</option>
+            </select>
+
+            <label for="inputIncome">รายได้ต่อเดือน (ตั้งแต่ 10,000บาท ขึ้นไป)</label>
+            <input type="number" class="w3-select w3-border" name="IncomePerMonth" id="inputIncome" required>
+
+            <label for="inputMoneyYourWant">วงเงินที่ต้องการ (สูงสุดไม่เกิน 5เท่าของรายได้ต่อเดือน)</label>
+            <input type="number" class="w3-select w3-border" name="moneyYourWant" id="inputMoneyYourWant" required>
+
+            <label for="inputTimeToPayBack">ระยะเวลาการผ่อนชำระ</label>
+            <select class="w3-select w3-border" name="timeToPayBack" id="inputTimeToPayBack" required>
+                <option value="" disabled selected>12/24/48/60Month</option>
+                <option value=12>12 เดือน</option>
+                <option value=24>24 เดือน</option>
+                <option value=48>48 เดือน</option>
+                <option value=60>60 เดือน</option>
+            </select>
+
+            <label>**อัตราดอกเบี้ยปกติ 15.00% ต่อปี</label>
+            <br />
+            <button class="calculatebutton">คำนวน</button>
+            <br /><br /><br /><br /><br /><br />
+        </form>
+    </div>
+
+    <div class="columnleft2">
+
+        <h2>ผลลัพธ์</h2>
+
+        <label>Type</label><br>
+        <div th:each="calculate : ${firstpageforcredit}">
+            <label th:text="${calculate.type}"></label>
+        </div><br>
+
+        <label>IncomePerMonth</label><br>
+        <div th:each="calculate : ${firstpageforcredit}">
+            <label th:text="${calculate.incomePerMonth}"></label>
+        </div><br>
+
+        <label>Money Your Want</label><br>
+        <div th:each="calculate : ${firstpageforcredit}">
+            <label th:text="${calculate.moneyYourWant}"></label>
+        </div><br>
+
+        <label>Time To Pay Back</label><br>
+        <div th:each="calculate : ${firstpageforcredit}">
+            <label th:text="${calculate.timeToPayBack}"></label>
+        </div><br>
+
+        <label>Result</label><br>
+        <div th:each="calculate : ${firstpageforcredit}">
+            <label th:text="${calculate.result}"></label>
+        </div><br>
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Member Page Admin</title>
+    <style>
+        body {
+            background-color : black;
+        }
+        * {box-sizing: border-box}
+
+        .tabLink {
+            background-color: #555;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 25%;
+        }
+
+        .tabLink:hover {
+            background-color: #777;
+        }
+
+        .tabContent {
+            color: white;
+            padding: 100px 20px;
+            height: 100%;
+        }
+
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: orange;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="tabContent">
+        <h3>User Data</h3>
+        <table id="customers">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>LastName</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Edit Status</th>
+            </tr>
+            <tbody>
+            <tr th:each="member : ${memberpageadmin}">
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.firstName}"></td>
+                <td th:text="${member.lastName}"></td>
+                <td th:text="${member.date}"></td>
+                <td th:text="${member.Status}"></td>
+                <td>
+                    <form th:action="@{memberpageadmin}" method="post">
+                        <select>
+                            <option value="" disabled selected>-----------</option>
+                            <option value="ผ่าน">ผ่าน</option>
+                            <option value="ไม่ผ่าน">ไม่ผ่าน</option>
+                        </select>
+                        <button>edit</button>
+                    </form>
+                    <!--<form th:action="@{/memberpageadmin/show/{id}(id=${member.id})}" method="get">
+                        <button>show data</button>
+                    </form>-->
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

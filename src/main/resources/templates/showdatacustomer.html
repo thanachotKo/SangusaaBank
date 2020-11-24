@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:action="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topHeader {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topHeader a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropDown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropDown .dropBtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .topHeader a:hover, .dropDown:hover .dropBtn {
+            background-color: red;
+        }
+
+        .dropDown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropDown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropDown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropDown:hover .dropDown-content {
+            display: block;
+        }
+
+        .loginBtn {
+            background-color : #333;
+            position : relative;
+            color : white;
+            padding : 15px;
+            font-size : 15px;
+            border : none;
+        }
+
+        .personalForm {
+            position : relative;
+            top : 20%;
+            color : white;
+            padding : 12px 20px;
+            border : none;
+            min-width : 150px;
+            background-color : #333;
+        }
+
+        .topHeaderCenter h1 {
+            position : absolute;
+            color : white;
+            top : 3%;
+            left : 50%;
+            transform : translate(-50%, -50%);
+        }
+        .topHeader-right {
+            float : right;
+            display : block;
+        }
+
+        .topHeader-right a:hover {
+            background-color : red;
+        }
+
+        .textController {
+            position : relative;
+            left : 10px;
+        }
+
+        .container {
+            position : relative;
+            left : 18%;
+            border: 40%;
+            background: #CCFFFF;
+            padding: 20px;
+            width: 63.5%;
+        }
+
+        .contact {
+            position : relative;
+            left : 80px;
+            background-color : #FFD700;
+            border : none;
+            color : white;
+            padding : 15px 32px;
+            text-align : center;
+            text-decoration : none;
+            display : inline-block;
+            font-size : 16px;
+            margin : 4px 2px;
+            cursor : pointer;
+        }
+
+        .setPosition {
+            position : relative;
+            left : 280px;
+        }
+
+        .setPosition h2 {
+            color : red;
+        }
+
+        .topicLowerPosition {
+            position : relative;
+            left : 3%;
+        }
+
+        .positionSubmit {
+            position : fixed;
+            top : 610px;
+            right : 280px;
+            background-color : #33FF66;
+            border : none;
+            color : white;
+            padding : 15px 32px;
+            text-align : center;
+            display : block;
+        }
+        .positionSubmit:hover {
+            background-color : #33CC00;
+        }
+
+    </style>
+    <title>Register Personal Loan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+
+    <div class="topHeader">
+        <div class="topHeaderCenter">
+            <h1>ADMIN</h1>
+        </div>
+        <div class="dropDown">
+            <button class="dropBtn"> <i class="fa fa-caret-down"></i></button>
+            <div class="dropDown-content">
+                <h1 style="font-size : 20px" class="textController">สมัคร</h1>
+                <form th:action="@{/mainpage}" method="post">
+                    <a href="/firstpageforpersonalloan">สินเชื่อส่วนบุคคล</a>
+                </form>
+                <form>
+                    <a href="/firstpageforstudyandnursing">สินเชื่อเพื่อการศึกษาและการรักษาพยาบาล</a>
+                </form>
+            </div>
+        </div>
+
+        <div class="topHeader-right">
+            <form>
+                <h3 class="loginBtn" href="login">ข้อมูลลูกค้า</h3>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="w3-container">
+        <br>
+        <div class="setPosition"><h1>ข้อมูลส่วนบุคคลของลูกค้า</h1></div>
+    </div>
+
+
+    <form th:action="@{/memberpageadmin}"
+          method="post">
+        <div class="container">
+            <div class="topicLowerPosition">
+                <h1 style="font-size : 30px;">แสดงข้อมูลส่วนบุคคล</h1>
+            </div>
+            <div class="w3-row-padding">
+                <div class="w3-half">
+
+                    <label>ชื่อ :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.firstName}"></label>
+                    </div><br>
+
+                    <label>รหัสประชาชน :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.id}"></label>
+                    </div><br>
+
+                    <label>เบอร์โทรศัพย์ :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.phoneNumber}"></label>
+                    </div><br>
+
+                    <label>อีเมล :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.email}"></label>
+                    </div><br>
+
+                    <label>รายได้ต่อเดือน :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.incomePerMonth}"></label>
+                    </div><br>
+
+                    <label>ที่อยู่บริษัท :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.companyLocation}"></label>
+                    </div><br>
+
+                    <label>เวลาทำงานทั้งหมดในบริษัท :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.allTimeInCompany}"></label>
+                    </div><br>
+
+                </div>
+
+                <div class="w3-half">
+
+                    <label>นามสกุล :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.LastName}"></label>
+                    </div><br>
+
+                    <label>บริษัท :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.companyName}"></label>
+                    </div><br>
+
+                    <label>อาชัพ :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.careerName}"></label>
+                    </div><br>
+
+                    <label>เบอร์ติดต่อบริษัท :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.companyPhoneNumber}"></label>
+                    </div><br>
+
+                    <label>เงินที่ต้องการ :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.moneyYouWant}"></label>
+                    </div><br>
+
+                    <label>เวลาที่ต้องการจ่ายคืน :</label><br>
+                    <div th:each="data : ${showdatacustomer}">
+                        <label th:text="${data.timeToPayBack}"></label>
+                    </div><br>
+
+                    <select>
+                        <option value="" disabled selected>-----------</option>
+                        <option value="ผ่าน">ผ่าน</option>
+                        <option value="ไม่ผ่าน">ไม่ผ่าน</option>
+                    </select>
+                    <button class="positionSubmit">บันทึก</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

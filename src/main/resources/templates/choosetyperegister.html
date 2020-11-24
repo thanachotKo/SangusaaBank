@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Choose Type</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            background-image : url("https://www.wallpapertip.com/wmimgs/166-1661058_mountain-night-stars-winter-lights-bokeh-macbook-backgrounds.jpg");
+        }
+        .container {
+             position : absolute;
+             text-align : center;
+             top : 25%;
+             left : 20%;
+             border: 40%;
+             background: #CCFFFF;
+             padding: 20px;
+             width: 60%;
+        }
+
+        .positionSubmit1 {
+            position : relative;
+            left : 38%;
+            background-color : #33FF66;
+            border : none;
+            color : white;
+            padding : 12px 32px;
+            text-align : center;
+            display : block;
+        }
+        .positionSubmit1:hover {
+            background-color : #33CC00;
+        }
+
+        .positionSubmit2 {
+            position : relative;
+            left :36%;
+            background-color : #33FF66;
+            border : none;
+            color : white;
+            padding : 12px 32px;
+            text-align : center;
+            display : block;
+        }
+        .positionSubmit2:hover {
+            background-color : #33CC00;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>คุณเป็นลูกค้าของเราหรือไม่?</h2>
+        <div class="w3-row-padding">
+            <div class="w3-haft">
+                <form th:action="@{/choosetyperegister}" method="post">
+                    <button class="positionSubmit1">เป็นลูกค้าของธนาคาร</button>
+                </form>
+            </div>
+            <br>
+            <div class="w3-haft">
+                <form th:action="@{/choosetyperegister/register2}" method="post">
+                    <button class="positionSubmit2">ยังไม่เป็นลูกค้าของธนาคาร</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

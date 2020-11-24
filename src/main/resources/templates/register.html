@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-image : url("https://www.wallpapertip.com/wmimgs/166-1661058_mountain-night-stars-winter-lights-bokeh-macbook-backgrounds.jpg");
+    }
+    .positionSubmit {
+            position : relative;
+            left : 41%;
+            background-color : #33FF66;
+            border : none;
+            color : white;
+            padding : 12px 32px;
+            text-align : center;
+            display : block;
+        }
+        .positionSubmit:hover {
+            background-color : #33CC00;
+        }
+
+    .container {
+         position : absolute;
+         text-align : center;
+         top : 24%;
+         left : 30%;
+         border: 40%;
+         background: #CCFFFF;
+         padding: 20px;
+         width: 40%;
+    }
+
+</style>
+</head>
+<body>
+
+    <form th:action="@{/register}" method="POST">
+
+        <div >
+            <div class="container">
+                <h2>สมัครใช้งานสำหรับผู้ที่มีบัญชีอยู่แล้ว</h2>
+                <label for="inputID"><b>ID(รหัสบัตรประชาชน)</b></label><br>
+                <input type="input" placeholder="" name="id" id="inputID" maxlength="40" size="15" required>
+                <br><br>
+                <label for="password"><b>รหัสผ่าน</b></label><br>
+                <input type="input" placeholder="" name="password" id="password" maxlength="40" size="15" required>
+                <br><br>
+
+                <button type="next" class="positionSubmit">สมัคร</button>
+
+            </div>
+        </div>
+
+    </form>
+
+
+
+</body>
+</html>

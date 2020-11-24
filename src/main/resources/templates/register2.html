@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Register2</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .textController {
+            position : relative;
+            left : 10px;
+        }
+
+        .container {
+            position : absolute;
+            top : 19%;
+            left : 18%;
+            border: 40%;
+            background: #CCFFFF;
+            padding: 20px;
+            width: 63.5%;
+        }
+
+        .contact {
+            position : relative;
+            left : 80px;
+            background-color : #FFD700;
+            border : none;
+            color : white;
+            padding : 15px 32px;
+            text-align : center;
+            text-decoration : none;
+            display : inline-block;
+            font-size : 16px;
+            margin : 4px 2px;
+            cursor : pointer;
+        }
+
+        .setPosition {
+            position : relative;
+            left : 280px;
+        }
+
+        .setPosition h2 {
+            color : red;
+        }
+
+        .topicLowerPosition {
+            position : relative;
+            left : 3%;
+        }
+
+        .positionSubmit {
+            position : fixed;
+            top : 70%;
+            right : 19%;
+            background-color : #33FF66;
+            border : none;
+            color : white;
+            padding : 15px 32px;
+            text-align : center;
+            display : block;
+        }
+        .positionSubmit:hover {
+            background-color : #33CC00;
+        }
+    </style>
+</head>
+<body>
+    <form th:action="@{/register2}" method="post">
+        <div class="container">
+            <div class="topicLowerPosition">
+                <h1 style="font-size : 30px;">กรุณาสมัครสมาชิก</h1>
+            </div>
+            <div class="w3-row-padding">
+                <div class="w3-half">
+
+                    <label for="inputFastName">First Name</label>
+                    <input type="input" class="w3-input w3-border" name="FirstName" id="inputFastName" placeholder="ชื่อ" required>
+                    <br>
+                    <label for="inputId">ID</label>
+                    <input type="input" class="w3-input w3-border" name="id" id="inputId" placeholder="รหัสบัตรประชาชน" required>
+                    <br>
+                    <label for="inputDate">Date</label>
+                    <input type="input" class="w3-input w3-border" name="date" id="inputDate" placeholder="DAY/MONTH/YEAR" required>
+
+                </div>
+
+                <div class="w3-half">
+
+                    <label for="inputLastName">Last Name</label>
+                    <input type="input" class="w3-input w3-border" name="LastName" id="inputLastName" placeholder="นามสกุล" required>
+                    <br>
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="w3-input w3-border" name="password" id="inputPassword" placeholder="password" required>
+
+                </div>
+            </div>
+        </div>
+
+        <button class="positionSubmit">ยอมรับ</button>
+    </form>
+</body>
+</html>

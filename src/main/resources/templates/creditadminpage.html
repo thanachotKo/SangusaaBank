@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Student And Nurse</title>
+    <style>
+        body {
+            background-color : black;
+        }
+        * {box-sizing: border-box}
+
+        .tabLink {
+            background-color: #555;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 25%;
+        }
+
+        .tabLink:hover {
+            background-color: #777;
+        }
+
+        .tabContent {
+            color: white;
+            padding: 100px 20px;
+            height: 100%;
+        }
+
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: green;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="tabContent">
+    <h3>User Contact Data</h3>
+    <table id="customers">
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Career</th>
+            <th>Income/Month</th>
+            <th>companyName</th>
+            <th>companyLocation</th>
+            <th>companyPhoneNumber</th>
+            <th>allTimeInCompany</th>
+            <th>moneyYouWant</th>
+            <th>timeToPayBack</th>
+        </tr>
+        <tbody>
+        <tr th:each="contact : ${creditadminpage}">
+            <td th:text="${contact.id}"></td>
+            <td th:text="${contact.firstName}"></td>
+            <td th:text="${contact.lastName}"></td>
+            <td th:text="${contact.phoneNumber}"></td>
+            <td th:text="${contact.email}"></td>
+            <td th:text="${contact.career}"></td>
+            <td th:text="${contact.incomePerMonth}"></td>
+            <td th:text="${contact.companyName}"></td>
+            <td th:text="${contact.companyLocation}"></td>
+            <td th:text="${contact.companyPhoneNumber}"></td>
+            <td th:text="${contact.allTimeInCompany}"></td>
+            <td th:text="${contact.moneyYouWant}"></td>
+            <td th:text="${contact.timeToPayBack}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topHeader {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .topHeader a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropDown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropDown .dropBtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .topHeader a:hover, .dropDown:hover .dropBtn {
+            background-color: red;
+        }
+
+        .dropDown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropDown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropDown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropDown:hover .dropDown-content {
+            display: block;
+        }
+
+        .loginBtn {
+            background-color : #333;
+            position : relative;
+            color : white;
+            padding : 15px;
+            font-size : 15px;
+            border : none;
+        }
+
+        .personalForm {
+            position : relative;
+            top : 20%;
+            color : white;
+            padding : 12px 20px;
+            border : none;
+            min-width : 150px;
+            background-color : #333;
+        }
+
+        .topHeaderCenter h1 {
+            position : absolute;
+            color : white;
+            top : 2%;
+            left : 50%;
+            transform : translate(-50%, -50%);
+        }
+        .topHeader-right {
+            float : right;
+            display : block;
+        }
+
+        .topHeader-right a:hover {
+            background-color : red;
+        }
+
+        .textController {
+            position : relative;
+            left : 10px;
+        }
+
+        .container {
+            background: #CCFFFF;
+            padding: 20px;
+            width: 189%;
+            height: 300%;
+        }
+
+        * {box-sizing : border-box;}
+
+        .column {
+            float: left;
+            width: 40%;
+            padding: 60px 150px;
+            height: 95%;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .topicLowerPosition {
+            position : absolute;
+        }
+
+        .lowerTopHeader {
+            overflow: hidden;
+            background-color: #FFCC33;
+        }
+
+        .lowerTopHeaderPosition {
+            position : relative;
+            left : 50px;
+        }
+
+        .positionSubmit {
+            position : absolute;
+            top : 145%;
+            right : 11.65%;
+            background-color : #33FF66;
+            border : none;
+            color : white;
+            padding : 15px 32px;
+            text-align : center;
+            display : block;
+        }
+        .positionSubmit:hover {
+            background-color : #33CC00;
+        }
+
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>สมัครสินเชื่อ</title>
+</head>
+<body>
+
+    <div class="topHeader">
+        <div class="topHeaderCenter">
+            <h1>ธนาคารอุตสาหะ</h1>
+        </div>
+        <div class="dropDown">
+            <button class="dropBtn"> ลูกค้าบุคคล <i class="fa fa-caret-down"></i></button>
+            <div class="dropDown-content">
+                <h1 style="font-size : 20px" class="textController">สมัคร</h1>
+                <form th:action="@{/mainpage}" method="post">
+                    <a href="/firstpageforcredit">สินเชื่อส่วนบุคคล</a>
+                </form>
+            </div>
+        </div>
+
+        <div class="topHeader-right">
+            <form>
+                <a class="loginBtn" href="login">ออกจากระบบ</a>
+            </form>
+        </div>
+    </div>
+
+    <div class="lowerTopHeader">
+        <div class="lowerTopHeaderPosition">
+            <h2>สมัครสินเชื่อ</h2>
+        </div>
+    </div>
+
+    <form th:action="@{/creditpage}" method="post">
+        <form action="/action_page.php">
+            <div class="row">
+                <div class="topicLowerPosition" style="left : 11.7%">
+                    <h2>ข้อมูลส่วนบุคคล</h2>
+                </div>
+                <div class="column">
+                    <div class="container">
+                        <label for="inputFastName">First Name</label>
+                        <input type="input" class="w3-input w3-border" name="firstName" id="inputFastName" placeholder="ชื่อ" required>
+
+                        <label for="inputLastName">Last Name</label>
+                        <input type="input" class="w3-input w3-border" name="lastName" id="inputLastName" placeholder="นามสกุล" required>
+
+                        <label for="inputId">ID</label>
+                        <input type="input" class="w3-input w3-border" name="id" id="inputId" placeholder="รหัสบัตรประชาชน" required>
+
+                        <label for="inputPhoneNumber">PhoneNumber</label>
+                        <input type="tel" class="w3-input w3-border" name="phoneNumber" id="inputPhoneNumber" placeholder="เบอร์โทรศัพย์" required>
+
+                        <label for="inputEmail">Email</label>
+                        <input type="input" class="w3-input w3-border" name="email" id="inputEmail" placeholder="example@gmail.com" required>
+                    </div>
+                </div>
+                <div class="topicLowerPosition" style="right : 38.7%">
+                    <h2>ข้อมูลอาชีพ</h2>
+                </div>
+                <div class="column">
+                    <div class="container">
+                        <label for="inputCareer">Career</label>
+                        <input type="input" class="w3-input w3-border" name="careerName" id="inputCareer" placeholder="อาชีพของคุณ" required>
+
+                        <label for="inputCompanyName">Company Name</label>
+                        <input type="input" class="w3-input w3-border" name="companyName" id="inputCompanyName" placeholder="ชื่อบริษัทของคุณ" required>
+
+                        <label for="inputCompanyLocation">Company Location</label>
+                        <input type="input" class="w3-input w3-border" name="companyLocation" id="inputCompanyLocation" placeholder="ที่อยู่บริษัทบัจจุบันของคุณ" required>
+
+                        <label for="inputCompanyPhoneNumber">Company Phone Number</label>
+                        <input type="input" class="w3-input w3-border" name="companyPhoneNumber" id="inputCompanyPhoneNumber" placeholder="เบอร์ติดต่อบริษัทปัจจุบันของคุณ" required>
+
+                        <label for="inputAllTimeInCompany">All Time In Company</label>
+                        <input type="input" class="w3-input w3-border" name="allTimeInCompany" id="inputAllTimeInCompany" placeholder="ระยะเวลาที่ทำงานในบริษัทปัจจุบันของคุณ" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="topicLowerPosition" style="left : 11.7%">
+                    <h2>ข้อมูลสินเชื่อ</h2>
+                </div>
+                <div class="column">
+                    <div class="container">
+                        <label for="inputIncome">รายได้ต่อเดือน</label>
+                        <input type="input" class="w3-input w3-border" name="incomePerMonth" id="inputIncome" required>
+                        <br>
+                        <label for="inputIncomeX5">วงเงินที่ต้องการ (สูงสุดไม่เกิน 5เท่าของรายได้ต่อเดือน)</label>
+                        <input type="input" class="w3-input w3-border" name="moneyYouWant" id="inputIncomeX5" required>
+                        <br>
+
+                        <label for="inputTimeToPayBack">ระยะเวลาการผ่อนชำระ</label>
+                        <select class="w3-select w3-border" name="timeToPayBack" id="inputTimeToPayBack" required>
+                            <option value="" disabled selected>12/24/48/60Month</option>
+                            <option value=12>12Month</option>
+                            <option value=24>24Month</option>
+                            <option value=48>48Month</option>
+                            <option value=60>60Month</option>
+                        </select>
+
+                        <br><br><br><br><br>
+                    </div>
+                    <p style="color : red;">ระบบได้ทำการบันทึกข้อมูลของคุณ
+                        <br>รอการอนุมัติสินเชื่อ เจ้าหน้าที่จะทำการติดต่อกลับภายใน 48 ชั่วโมง
+                    </p>
+                </div>
+                <div class="topicLowerPosition" style="right : 38.7%">
+                    <h2>ข้อมูลอาชีพ</h2>
+                </div>
+                <div class="column">
+                    <div class="container">
+                        <label for="inputPictureIncomePerMonth">สลิปเงินเดือนล่าสุด</label><br>
+                        <input type="file" id="inputPictureIncomePerMonth" name="pictureSalaryStatement" required><br><br>
+                        <label for="inputPictureBeForeSixMonth">รายการเดินบัญชีย้อนหลัง 6 เดือน</label><br>
+                        <input type="file" id="inputPictureBeForeSixMonth" name="pictureBeforeSixMonth" required><br><br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+
+                </div>
+            </div>
+            <button class="positionSubmit">ยอมรับ</button>
+        </form>
+    </form>
+
+</body>
+</html>
